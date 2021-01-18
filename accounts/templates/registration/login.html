@@ -1,0 +1,18 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} Вход {% endblock %}
+
+{% block nav %}
+    <a href="{% url 'main' %}" class="btn btn-outline-secondary">&larr; Вернуться на главную</a>
+{% endblock %}
+
+{% block section %}
+<h3 class="mt-5">Войти</h3>
+<form method="post">
+  {% csrf_token %}
+  <div class="form-control p-3">
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-outline-success">Войти</button>
+  </div>
+</form>
+{% endblock %}

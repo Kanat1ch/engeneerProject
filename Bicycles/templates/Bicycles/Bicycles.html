@@ -1,0 +1,19 @@
+{% extends "layout\base.html" %}
+
+{% block title %} Велосипеды {% endblock %}
+
+{% block nav %}
+    <a href="{% url 'main' %}" class="btn btn-outline-secondary">&larr; Вернуться на главную</a>
+{% endblock %}
+
+{% block section %}
+    {% for bicycle in Bicycles%}
+        <div class="card border-primary mt-3 col-4">
+            <div class="card-header">{{bicycle.type}} | Вес: {{bicycle.weight}} кг.</div>
+            <div class="card-body text-primary">
+                <h5 class="card-title">{{bicycle.stamp}}</h5>
+                <h6 class="card-text" style="color: black; text-align: right;">{{bicycle.price}} &#8381;/час</h6>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

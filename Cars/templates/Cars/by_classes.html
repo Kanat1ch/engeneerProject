@@ -1,0 +1,30 @@
+{% extends "layout\base.html" %}
+
+{% block title %} Автомобили {% endblock %}
+
+{% block nav %}
+    <a href="{% url 'main' %}" class="btn btn-outline-secondary">&larr; Вернуться на главную</a>
+{% endblock %}
+
+{% block filter_by_classes %}
+    <h4 class="mt-3">Класс</h4>
+    <div class="btn-group btn-group-sm">
+        <a href="{% url 'cars' %}" class="btn btn-outline-primary">Все</a>
+        {% for Cl in classes %}
+        <a href="{% url 'filter_by_class' Cl.pk %}" class="btn btn-outline-primary"> {{ Cl.rank }} </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block section %}
+{% for C in Cars%}
+<div class="card border-primary mt-3 col-4">
+    <div class="card-header">КП: {{C.transmission}} | Класс: {{C.rank}}</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">{{C.stamp}}</h5>
+        <h6 class="card-text" style="color: black; text-align: right;">{{C.price}} &#8381;/сутки</h6>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+

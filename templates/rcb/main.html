@@ -1,0 +1,14 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Главная {% endblock %}
+
+{% block header %}
+    <!-- <p>Привет{{ user.username }}!</p> -->
+{% endblock %}
+
+{% block section %}
+    <div class="list-group d-flex col-3 mt-3">
+        <a href="{% url 'cars' %}" class="list-group-item list-group-item-action">Автомобили</a>
+        <a href="{% url 'bicycles' %}" class="list-group-item list-group-item-action">Велосипеды</a>
+    </div>  
+{% endblock %}
