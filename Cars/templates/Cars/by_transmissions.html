@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block filter_by_transmissions %}
-    <h4 class="mt-5">Коробка передач</h4>
+    <h4 class="mt-5"><i class="fa fa-sort-amount-desc" aria-hidden="true" style="font-size: 18px;margin-right:3px; color: #333;"></i> Коробка передач</h4>
     <div class="btn-group btn-group-sm">
         <a href="{% url 'cars' %}" class="btn btn-outline-primary">Все</a>
         {% for T in Transmissions %}
@@ -19,7 +19,7 @@
 {% block section %}
 {% for C in Cars%}
 <div class="card border-primary mt-3 col-4">
-    <div class="card-header">КП: {{C.transmission}} | Класс: {{C.rank}}</div>
+    <div class="card-header">КПП: {{C.transmission}} | Класс: {{C.rank}}</div>
     <div class="card-body text-primary">
         <h5 class="card-title">{{C.stamp}}</h5>
         <h6 class="card-text" style="color: black; text-align: right;">{{C.price}} &#8381;/сутки</h6>

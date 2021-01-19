@@ -6,7 +6,6 @@ from .models import Bsles
 from .models import Marks
 from .models import Type
 from .models import Wheels
-from .models import Frame
 
 
 class InlineBsles(admin.TabularInline):
@@ -14,10 +13,10 @@ class InlineBsles(admin.TabularInline):
 
 
 class BslesAdmin(ImportExportModelAdmin):
-    list_filter = ('type', 'frame',)
-    list_display = ('stamp', 'type', 'frame', 'wheels', 'weight', 'price', 'reservation', 'description')
+    list_filter = ('type',)
+    list_display = ('stamp', 'type', 'wheels', 'weight', 'price')
     list_display_links = ('stamp',)
-    search_fields = ('stamp', 'description', 'price')
+    search_fields = ('stamp', 'price')
 
 
 class MarksAdmin(ImportExportModelAdmin):
@@ -54,4 +53,3 @@ admin.site.register(Bsles, BslesAdmin)
 admin.site.register(Marks, MarksAdmin)
 admin.site.register(Type, TypeAdmin)
 admin.site.register(Wheels, WheelsAdmin)
-admin.site.register(Frame, FrameAdmin)

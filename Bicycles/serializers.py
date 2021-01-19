@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Marks, Type, Frame, Wheels, Bsles
+from .models import Marks, Type, Wheels, Bsles
 
 
 class MarksSerializer(serializers.ModelSerializer):
@@ -10,11 +10,6 @@ class MarksSerializer(serializers.ModelSerializer):
 class TypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Type
-        fields = '__all__'
-
-class FrameSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Frame
         fields = '__all__'
 
 class WheelsSerializer(serializers.ModelSerializer):

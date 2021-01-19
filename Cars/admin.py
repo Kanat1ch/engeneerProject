@@ -13,10 +13,10 @@ class InlineCars(admin.TabularInline):
 
 
 class CarsAdmin(ImportExportModelAdmin):
-    list_filter = ('transmission', 'rank', 'reservation')
-    list_display = ('stamp', 'transmission', 'price', 'litre', 'reservation', 'description')
+    list_filter = ('transmission', 'rank')
+    list_display = ('stamp', 'transmission', 'price')
     list_display_links = ('stamp',)
-    search_fields = ('stamp', 'description', 'price')
+    search_fields = ('stamp', 'price')
 
 
 class RanksAdmin(ImportExportModelAdmin):

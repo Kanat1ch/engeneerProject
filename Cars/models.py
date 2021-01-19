@@ -21,8 +21,8 @@ class Marks(models.Model):
         return self.mark + ' ' + self.model
 
     class Meta:
-        verbose_name_plural = 'Марки и модели'
-        verbose_name = 'Марка и модель'
+        verbose_name_plural = 'Модельный ряд'
+        verbose_name = 'Модельный ряд'
         ordering = ['mark']
 
 
@@ -38,14 +38,10 @@ class Ranks(models.Model):
         ordering = ['rank']
 
 class Cars(models.Model):
-    stamp = models.ForeignKey('Marks', null=True, on_delete=models.PROTECT, verbose_name='Марка - Модель')
-    description = models.TextField(null=True, blank=True, verbose_name='Описание')
+    stamp = models.ForeignKey('Marks', null=True, on_delete=models.PROTECT, verbose_name='Модельный ряд')
     price = models.FloatField(null=True, blank=True, verbose_name='Цена')
-    litre = models.FloatField(null=True, blank=True, verbose_name='Литраж')
-    speed = models.SmallIntegerField(null=True, blank=True, verbose_name='Максимальная скорость')
     release = models.DateField(null=True, blank=True, verbose_name='Дата выпуска')
-    reservation = models.BooleanField(null=False, blank=True, verbose_name='Резерв')
-    transmission = models.ForeignKey('Transmissions', null=True, on_delete=models.PROTECT, verbose_name='КПП')
+    transmission = models.ForeignKey('Transmissions', null=True, on_delete=models.PROTECT, verbose_name='Коробка передач')
     rank = models.ForeignKey('Ranks', null=True, on_delete=models.PROTECT, verbose_name='Класс')
 
     class Meta:

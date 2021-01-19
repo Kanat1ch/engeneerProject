@@ -9,8 +9,8 @@ class Marks(models.Model):
         return self.mark + ' ' + self.model
 
     class Meta:
-        verbose_name_plural = 'Марки и модели'
-        verbose_name = 'Марка и модель'
+        verbose_name_plural = 'Модельный ряд'
+        verbose_name = 'Модельный ряд'
         ordering = ['mark']
 
 
@@ -24,20 +24,6 @@ class Type(models.Model):
         verbose_name_plural = 'Типы'
         verbose_name = 'Тип'
         ordering = ['name']
-
-
-class Frame(models.Model):
-    name = models.CharField(max_length=20, db_index=True, verbose_name='Рамы')
-    abb = models.CharField(max_length=20, db_index=True, verbose_name='Аббривиатура')
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = 'Рамы'
-        verbose_name = 'Рама'
-        ordering = ['name']
-
 
 class Wheels(models.Model):
     mark = models.CharField(max_length=20, db_index=True, verbose_name='Марка')
@@ -54,14 +40,11 @@ class Wheels(models.Model):
 
 
 class Bsles(models.Model):
-    stamp = models.ForeignKey('Marks', null=True, on_delete=models.PROTECT, verbose_name='Марка - Модель')
+    stamp = models.ForeignKey('Marks', null=True, on_delete=models.PROTECT, verbose_name='Бренд')
     type = models.ForeignKey('Type', null=True, on_delete=models.PROTECT, verbose_name='Тип')
-    frame = models.ForeignKey('Frame', null=True, on_delete=models.PROTECT, verbose_name='Рама')
     wheels = models.ForeignKey('Wheels', null=True, on_delete=models.PROTECT, verbose_name='Колеса')
-    description = models.TextField(null=True, blank=True, verbose_name='Описание')
     weight = models.FloatField(null=True, blank=True, verbose_name='Вес')
     price = models.FloatField(null=True, blank=True, verbose_name='Цена')
-    reservation = models.BooleanField(null=False, blank=True, verbose_name='Резерв')
 
     class Meta:
         verbose_name_plural = 'Велосипеды'

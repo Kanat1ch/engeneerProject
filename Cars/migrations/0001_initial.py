@@ -47,7 +47,7 @@ class Migration(migrations.Migration):
                 ('litre', models.SmallIntegerField(blank=True, null=True, verbose_name='Литраж')),
                 ('speed', models.SmallIntegerField(blank=True, null=True, verbose_name='Максимальная скорость')),
                 ('release', models.DateField(blank=True, null=True, verbose_name='Дата выпуска')),
-                ('reservation', models.BooleanField(blank=True, verbose_name='Резерв')),
+                ('reservation', models.BooleanField(blank=True, null=True, verbose_name='Резерв')),
                 ('stamp', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='Cars.marks', verbose_name='Марка - Модель')),
                 ('transmission', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='Cars.transmissions', verbose_name='КПП')),
             ],

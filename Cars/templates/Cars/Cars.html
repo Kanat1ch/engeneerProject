@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block filter_by_transmissions %}
-    <h4 class="mt-5">Коробка передач</h4>
+    <h4 class="mt-5"><i class="fa fa-sort-amount-desc" aria-hidden="true" style="font-size: 18px;margin-right:3px; color: #333;"></i> Коробка передач</h4>
     <div class="btn-group btn-group-sm">
         <a href="{% url 'cars' %}" class="btn btn-outline-primary">Все</a>
         {% for T in Transmissions %}
@@ -17,7 +17,7 @@
 {% endblock %}
     
 {% block filter_by_classes %}
-    <h4 class="mt-3">Класс</h4>
+    <h4 class="mt-3"><i class="fa fa-sort-amount-desc" aria-hidden="true" style="font-size: 18px;margin-right:3px; color: #333;"></i> Класс</h4>
     <div class="btn-group btn-group-sm">
         <a href="{% url 'cars' %}" class="btn btn-outline-primary">Все</a>
         {% for Cl in classes %}
